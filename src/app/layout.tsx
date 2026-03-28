@@ -1,8 +1,10 @@
 import ClientAnalytics from "@/components/client-analytics";
 import ClientErrorTracker from "@/components/client-error-tracker";
+import { getAdsenseAccount, getSiteUrl } from "@/lib/runtime-config";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,8 +17,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-domain.example"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "QR Code Generator - Free Online QR Creator",
     template: "%s | QR Code Generator",
@@ -55,7 +59,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const adsenseAccount = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ACCOUNT;
+  const adsenseAccount = getAdsenseAccount();
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
@@ -69,6 +73,14 @@ export default function RootLayout({
     >
       <head>{adsenseAccount ? <meta name="google-adsense-account" content={adsenseAccount} /> : null}</head>
       <body className="min-h-full flex flex-col">
+        {adsenseAccount ? (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseAccount}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        ) : null}
         <ClientAnalytics />
         <ClientErrorTracker />
         <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-3 sm:px-6 lg:px-8">

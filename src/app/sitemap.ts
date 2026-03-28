@@ -1,6 +1,7 @@
+import { getSiteUrl } from "@/lib/runtime-config";
 import type { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-domain.example";
+const siteUrl = getSiteUrl();
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = ["", "/about", "/contact", "/privacy-policy", "/terms"];
