@@ -1,6 +1,10 @@
+const DEFAULT_SITE_URL = "https://qr-code-generats.vercel.app";
+const DEFAULT_ADSENSE_ACCOUNT = "ca-pub-6920866752872924";
+const DEFAULT_ADSENSE_PUBLISHER_ID = "pub-6920866752872924";
+
 function normalizeOrigin(input: string): string {
   const trimmed = input.trim();
-  if (!trimmed) return "http://localhost:3000";
+  if (!trimmed) return DEFAULT_SITE_URL;
 
   const withScheme = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
   return withScheme.replace(/\/$/, "");
@@ -13,7 +17,7 @@ export function getSiteUrl(): string {
     process.env.VERCEL_PROJECT_PRODUCTION_URL ??
     process.env.VERCEL_URL;
 
-  return normalizeOrigin(configured ?? "http://localhost:3000");
+  return normalizeOrigin(configured ?? DEFAULT_SITE_URL);
 }
 
 export function getAdsensePublisherId(): string | null {
@@ -23,7 +27,7 @@ export function getAdsensePublisherId(): string | null {
     process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ACCOUNT ??
     process.env.GOOGLE_ADSENSE_ACCOUNT;
 
-  if (!raw) return null;
+  if (!raw) return DEFAULT_ADSENSE_PUBLISHER_ID;
 
   if (raw.startsWith("pub-")) return raw;
   if (raw.startsWith("ca-pub-")) return raw.replace("ca-pub-", "pub-");
@@ -36,5 +40,5 @@ export function getAdsenseAccount(): string | null {
   if (raw?.startsWith("pub-")) return `ca-${raw}`;
 
   const publisherId = getAdsensePublisherId();
-  return publisherId ? `ca-${publisherId}` : null;
+  return publisherId ? `ca-${publisherId}` : DEFAULT_ADSENSE_ACCOUNT;
 }
