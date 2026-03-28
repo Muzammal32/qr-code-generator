@@ -1,4 +1,5 @@
 import { getSiteUrl } from "@/lib/runtime-config";
+import { qrGuides } from "@/lib/qr-guides";
 import type { MetadataRoute } from "next";
 
 const siteUrl = getSiteUrl();
@@ -11,11 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy-policy",
     "/terms",
     "/guides",
-    "/guides/qr-code-for-whatsapp-link",
-    "/guides/qr-code-for-wifi-password",
-    "/guides/qr-code-for-restaurant-menu",
-    "/guides/why-qr-code-is-not-scanning",
-    "/guides/qr-code-with-logo-best-practices",
+    ...qrGuides.map((guide) => `/guides/${guide.slug}`),
   ];
 
   return pages.map((path) => ({
