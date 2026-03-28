@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">QR Code Generator</title>
+  <desc id="desc">Create customizable QR codes online for links, WiFi, and contact cards.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef4ff"/>
+      <stop offset="100%" stop-color="#e9fff5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="110" y="95" width="980" height="440" rx="28" fill="#ffffff" stroke="#111827" stroke-opacity="0.1"/>
+  <g transform="translate(170 155)">
+    <rect width="220" height="220" rx="16" fill="#111827"/>
+    <rect x="28" y="28" width="62" height="62" fill="#ffffff"/>
+    <rect x="130" y="28" width="62" height="62" fill="#ffffff"/>
+    <rect x="28" y="130" width="62" height="62" fill="#ffffff"/>
+    <rect x="130" y="130" width="28" height="28" fill="#ffffff"/>
+    <rect x="164" y="130" width="28" height="28" fill="#ffffff"/>
+    <rect x="130" y="164" width="62" height="28" fill="#ffffff"/>
+  </g>
+  <text x="440" y="225" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="56" font-weight="700" fill="#111827">QR Code Generator</text>
+  <text x="440" y="290" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="30" fill="#374151">Create, customize, and scan QR codes instantly.</text>
+  <text x="440" y="345" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="28" fill="#374151">URL, WiFi, vCard, batch CSV, PNG/SVG export.</text>
+</svg>
