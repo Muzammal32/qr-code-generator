@@ -62,6 +62,7 @@ export default function RootLayout({
   const adsenseAccount = getAdsenseAccount();
   const navItems = [
     { href: "/", label: "Home" },
+    { href: "/guides", label: "Guides" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
