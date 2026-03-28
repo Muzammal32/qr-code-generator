@@ -2,6 +2,7 @@
 
 import jsQR from "jsqr";
 import JSZip from "jszip";
+import Link from "next/link";
 import Papa from "papaparse";
 import QRCode from "qrcode";
 import { ChangeEvent, useEffect, useMemo, useState } from "react";
@@ -645,6 +646,32 @@ export default function Home() {
           <li>Advertising is used to support free access while keeping the product usable.</li>
           <li>Support requests can be sent to support.webservice@gmail.com.</li>
         </ul>
+      </section>
+
+      <section className="mt-6 rounded-3xl border border-black/10 bg-white p-5 shadow-sm sm:p-8">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-xl font-semibold">Popular QR Guides</h2>
+          <Link href="/guides" className="text-sm font-medium underline-offset-4 hover:underline">
+            View all guides
+          </Link>
+        </div>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <Link href="/guides/qr-code-for-whatsapp-link" className="rounded-xl border border-black/10 bg-[#fbfcff] p-4 text-sm font-medium leading-6 hover:bg-black/5">
+            QR code for WhatsApp link
+          </Link>
+          <Link href="/guides/qr-code-for-wifi-password" className="rounded-xl border border-black/10 bg-[#fbfcff] p-4 text-sm font-medium leading-6 hover:bg-black/5">
+            QR code for WiFi password
+          </Link>
+          <Link href="/guides/qr-code-for-restaurant-menu" className="rounded-xl border border-black/10 bg-[#fbfcff] p-4 text-sm font-medium leading-6 hover:bg-black/5">
+            QR code for restaurant menu
+          </Link>
+          <Link href="/guides/why-qr-code-is-not-scanning" className="rounded-xl border border-black/10 bg-[#fbfcff] p-4 text-sm font-medium leading-6 hover:bg-black/5">
+            Why QR code is not scanning
+          </Link>
+          <Link href="/guides/qr-code-with-logo-best-practices" className="rounded-xl border border-black/10 bg-[#fbfcff] p-4 text-sm font-medium leading-6 hover:bg-black/5 sm:col-span-2 lg:col-span-1">
+            QR code with logo best practices
+          </Link>
+        </div>
       </section>
     </div>
   );
