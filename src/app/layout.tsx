@@ -71,7 +71,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>{adsenseAccount ? <meta name="google-adsense-account" content={adsenseAccount} /> : null}</head>
+      <head>
+        <meta name="google-site-verification" content="Ngbb4gY_dpXIOevfxjL_0jLi4V7xBF3r-ZNlerOeFpQ" />
+        {adsenseAccount ? <meta name="google-adsense-account" content={adsenseAccount} /> : null}
+      </head>
       <body className="min-h-full flex flex-col">
         {adsenseAccount ? (
           <Script
